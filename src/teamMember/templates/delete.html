@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Delete Member{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Members</title>
+</head>
+<body>
+    <!-- This is the html file for deleting members-->
+    <h1>Deleting a team member</h1>
+    <div class="form-group">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            <button class="btn btn-danger">Confirm</button>
+        </form>
+    </div>
+</body>
+</html> 
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List Members</title>
+</head>
+<body>
+    <!-- This is the html file for listing out members-->
+    <h1>Team Members</h1>
+    <p> You have {{object_list.count}} team members.</p>
+    <p>-----------------------------</p>
+    {% for member in object_list %}
+        <p><a href="{% url 'edit' member.id %}">{{ member.FirstName }} {{ member.LastName }} </a>
+            {% if member.Role == "Admin" %}
+                ({{ member.Role }})
+            {% endif %}
+        </p>
+        <p>{{ member.PhoneNumber }}</p>
+        <p>{{ member.Email }}</p>
+        <p>-----------------------------</p>
+    {% endfor %}
+</body>
+</html> 
+
+{% endblock %}
